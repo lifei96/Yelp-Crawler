@@ -1,3 +1,3 @@
 # Yelp-Crawler
 
-Yelp crawler using Scrapy.
+Yelp crawler using Selenium WebDriver.
