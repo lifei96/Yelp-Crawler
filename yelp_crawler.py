@@ -169,6 +169,11 @@ class YelpCrawler(object):
 
                     try:
                         date = review.find_element_by_xpath(".//*[@class='rating-qualifier']").text.strip()
+                        if 'Updated review' in date:
+                            updated_review = 1
+                            date = date.split()[0].strip()
+                        else:
+                            updated_review = 0
                         date_month = date.split('/')[0]
                         date_day = date.split('/')[1]
                         date_year = date.split('/')[2]
@@ -178,17 +183,11 @@ class YelpCrawler(object):
                         date_month = ''
                         date_day = ''
                         date_year = ''
+                        updated_review = 0
                     review_dict['date'] = date
                     review_dict['date_month'] = date_month
                     review_dict['date_day'] = date_day
                     review_dict['date_year'] = date_year
-
-                    try:
-                        review.find_element_by_xpath(".//*[@class='Updated review']")
-                        updated_review = 1
-                    except:
-                        # print '-----updated_review not found-----'
-                        updated_review = 0
                     review_dict['updated_review'] = updated_review
 
                     try:

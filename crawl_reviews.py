@@ -3,8 +3,8 @@
 from yelp_crawler import YelpCrawler
 import pandas as pd
 
-URLS_PATH = 'data/elite_17.csv'
-REVIEW_CSV_PATH = 'data/reviews_elite_17.csv'
+URLS_PATH = 'data/elite_16.csv'
+REVIEW_CSV_PATH = 'data/reviews_elite_16.csv'
 
 if __name__ == '__main__':
     df = pd.read_csv(URLS_PATH, encoding='utf-8')
